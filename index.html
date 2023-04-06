@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/b99a20d6cb.js" crossorigin="anonymous"></script>
+    <title>Probando API</title>
+</head>
+<body>
+
+    <!-- Capaz está todo un toque desorganizado, más que nada las clases. Algunas capaz están en inglés, otras en español jajaja. Después lo hacemos quedar más lindo y organizado. Lo hice así
+    nomás para tener y empezar con algo. Lo mismo que el CSS, obvio que le falta bastante, y lo que está que es el header (ponele) está medio feo. Empezando por los colores por ej. Estuve viendo
+    páginas e-commerce y la mayoría usan 2 o 3 colores, pero más que nada blanco. Mi idea era hacer la página principal, otra que sea de sucursales, otra "Sobre nosotros" que tenga datos de 
+    la "empresa" y la última serían las páginas de cada producto (esto lo expliqué mas o menos en el .js). Se me ocurrió hacer páginas que dividan los productos por categoría, pero capaz es 
+    mucho quilombo, qseyo. Igual vemos, sino capaz le encontramos la vuelta y lo hacemos si quieren.
+     -->
+
+    <header>
+        <div class="logo">
+            <div>
+                <p class="logo-text">Tienda Online</p>
+            </div>
+            
+            <p class="logo-text">Comprá</p>
+            <p class="logo-text">¡Retirá tu compra en menos de 24hs!</p>
+            <p class="logo-text">Fácil y rápido</p>
+            <div class="logo-icon-container">
+                <i class="fa-solid fa-shop fa-xl"></i>
+            </div>
+            
+        </div>
+        <nav>
+            <div class="nav__top-bar-container">
+                
+                <div class="nav__name-container">
+                    <p>
+                        Tienda
+                    </p>
+                </div>
+                <div class="nav__search-bar-container">
+                    <input type="text" id="search-bar" placeholder="Busca un producto" name="producto-buscado">
+                </div>
+                <div class="nav__my-account-container">
+                    <i class="fa-solid fa-user"></i>
+                    <p>
+                        Mi cuenta
+                    </p>
+                </div>
+                
+                <div class="nav__cart-container">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p>
+                        Mi Carrito
+                    </p>
+                </div>
+                
+            </div>
+            <div class="nav__low-bar-container">
+                <div class="nav__options-container-products">
+                    <label for="productos">
+                    </label>
+                    <input onkeypress="return false;" placeholder="Productos" list="productos-lista" id="productos" name="productos">
+
+                    <!-- <datalist> no sé si es la correcta a usar en este caso. La puse por ponerla, lo que quería hacer acá es un menú desplegable con las categorias de los productos que tenemos.
+                        Las categorias también son a modo de ejemplo jajaja. -->
+    
+                    <datalist id="productos-lista">
+                        <option value="Electrodomesticos">
+                        <option value="Alimento">
+                        <option value="Tecnología">
+                        <option value="Hogar">
+                    </datalist>
+                        
+                </div>
+                <ul class="nav__options-container">
+                    <li>
+                        <a href="">Sucursales</a>
+                    </li>
+                    <li>
+                        <a href="">Sobre nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main id="products-container">
+        
+    </main>
+
+    <!-- Pongo acá las etiquetas del código y del css porque de esta forma primero se carga todo el documento HTML y luego el código y la hoja de estilos. Si lo pongo en el head el js no funcionaría
+    ya que al cargar primero el código no encontraría los elementos, o las ids que uso en el archivo JS. Cómo por ejemplo acá: const HTMLresponse = document.querySelector("#products-container"); 
+    products-container es la id de la etiqueta main. Si carga primero el js antes que <main>, nunca la va a encontrar porque no existe y tira error.-->
+
+    <script src="code.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</body>
+</html>
