@@ -1,3 +1,5 @@
+// Lo verde son comentarios, como en HTML, pero en js se hacen con las barritas //
+
 // Declaro la constante API_URL y la igualo a la URL de la API. Basicamente API_URL "se convierte en al URL de la página de la API. Así se me hace más práctico trabajar con al URL de la API sin tener que copiarla"
 
 const API_URL = "https://fakestoreapi.com";
@@ -96,3 +98,42 @@ fetch(`${API_URL}/products`)
 
       console.log(products);
 });
+
+/* 
+  Dejo el código completo sin los comentarios:
+
+const API_URL = "https://fakestoreapi.com";
+
+const HTMLresponse = document.querySelector("#products-container");
+const div = document.createElement("div");
+
+
+fetch(`${API_URL}/products`)
+    .then((res) => res.json())
+    .then((products) => {         
+      products.forEach((product)=> {
+
+          let elem = document.createElement("li");
+          let img = document.createElement("img");
+          let productLink = document.createElement("a");
+
+          productLink.appendChild(
+            document.createTextNode(`Click acá`)
+          )
+          elem.classList.add("hola")
+          elem.appendChild(
+          document.createTextNode(`${product.title}, ${product.price}`)
+          );
+          img.classList.add("img-product");
+          img.setAttribute("src", `${product.image}`);
+          productLink.setAttribute("href", `product-pages/${product.title}.html`)
+          elem.appendChild(img);
+          elem.appendChild(productLink);
+          div.appendChild(elem);
+          div.classList.add("products-total-container");
+      });
+
+      HTMLresponse.appendChild(div);
+      console.log(products)
+});
+*/
