@@ -6,98 +6,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=DynaPuff&family=Montserrat:ital,wght@1,300&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b99a20d6cb.js" crossorigin="anonymous"></script>
-    <title>Probando API</title>
+    <title>Codo a codo proyecto</title>
 </head>
-<body>
-
-    <!-- Capaz está todo un toque desorganizado, más que nada las clases. Algunas capaz están en inglés, otras en español jajaja. Después lo hacemos quedar más lindo y organizado. Lo hice así
-    nomás para tener y empezar con algo. Lo mismo que el CSS, obvio que le falta bastante, y lo que está que es el header (ponele) está medio feo. Empezando por los colores por ej. Estuve viendo
-    páginas e-commerce y la mayoría usan 2 o 3 colores, pero más que nada blanco. Mi idea era hacer la página principal, otra que sea de sucursales, otra "Sobre nosotros" que tenga datos de 
-    la "empresa" y la última serían las páginas de cada producto (esto lo expliqué mas o menos en el .js). Se me ocurrió hacer páginas que dividan los productos por categoría, pero capaz es 
-    mucho quilombo, qseyo. Igual vemos, sino capaz le encontramos la vuelta y lo hacemos si quieren.
-     -->
-
+<body id="root">
     <header>
-        <div class="logo">
+        <div class="header__logo">
             <div>
-                <p class="logo-text">Tienda Online</p>
+                <p class="header__logo-text">Lorem Ipsum</p>
             </div>
-            
-            <p class="logo-text">Comprá</p>
-            <p class="logo-text">¡Retirá tu compra en menos de 24hs!</p>
-            <p class="logo-text">Fácil y rápido</p>
-            <div class="logo-icon-container">
+            <p class="header__logo-text">Comprá</p>
+            <p class="header__logo-text">¡Retirá tu compra en menos de 24hs!</p>
+            <p class="header__logo-text">Fácil y rápido</p>
+            <div class="header__logo-icon-container">
                 <i class="fa-solid fa-shop fa-xl"></i>
             </div>
-            
         </div>
         <nav>
-            <div class="nav__top-bar-container">
-                
-                <div class="nav__name-container">
-                    <p>
-                        Tienda
-                    </p>
+            <div class="header__nav-top-bar-container">
+                <div class="header__nav-name-container">
+                    <h1>
+                        Lorem
+                    </h1>
                 </div>
-                <div class="nav__search-bar-container">
+                <div class="header__nav-search-bar-container">
                     <input type="text" id="search-bar" placeholder="Busca un producto" name="producto-buscado">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <div class="nav__my-account-container">
-                    <i class="fa-solid fa-user"></i>
-                    <p>
-                        Mi cuenta
-                    </p>
-                </div>
-                
-                <div class="nav__cart-container">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <p>
-                        Mi Carrito
-                    </p>
-                </div>
-                
-            </div>
-            <div class="nav__low-bar-container">
-                <div class="nav__options-container-products">
-                    <label for="productos">
-                    </label>
-                    <input onkeypress="return false;" placeholder="Productos" list="productos-lista" id="productos" name="productos">
-
-                    <!-- <datalist> no sé si es la correcta a usar en este caso. La puse por ponerla, lo que quería hacer acá es un menú desplegable con las categorias de los productos que tenemos.
-                        Las categorias también son a modo de ejemplo jajaja. -->
-    
-                    <datalist id="productos-lista">
-                        <option value="Electrodomesticos">
-                        <option value="Alimento">
-                        <option value="Tecnología">
-                        <option value="Hogar">
-                    </datalist>
-                        
-                </div>
-                <ul class="nav__options-container">
-                    <li>
-                        <a href="">Sucursales</a>
+                <ul class="header__nav-top-options-container">
+                    <li id="my-account" class="header__nav-my-account-container">
+                        <i class="fa-solid fa-user"></i>
+                        <p>
+                            Mi cuenta
+                        </p> 
                     </li>
-                    <li>
-                        <a href="">Sobre nosotros</a>
+                    <li class="header__nav-cart-container">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>
+                            Mi Carrito
+                        </p>
                     </li>
                 </ul>
             </div>
+            <div class="header__nav-low-bar-container">
+                <div class="header__nav-options-container-products">
+                    <button id="products-button">
+                        Categorias
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                
+                    <ul id="products-categories" class="header__nav-options-container-products-display">
+                        <li>
+                            <a id="most-rated" href="#products-total-container">Productos destacados</a>
+                        </li>
+                        <li>
+                            <a id="women-clothing" href="#products-total-container">Indumentaria mujeres</a>
+                        </li>
+                        <li>
+                            <a id="men-clothing" href="#products-total-container">Indumentaria hombres</a>
+                        </li>
+                         <li>
+                            <a id="electronics" href="#products-total-container">Tecnología</a>
+                         </li>
+                         <li>
+                            <a id="jewelery" href="#products-total-container">Accesorios</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="">
+                    <ul class="header__nav-low-options-container">
+                        <li>
+                            <a href="">Sucursales</a>
+                        </li>
+                        <li>
+                            <a href="">Sobre nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <main id="products-container">
-        <!-- Acá no hay ninguna etiqueta porque las creé con JS. En code.js explico más o menos como lo hice-->
+    <main id="probando123">
+        <section class="main__s1-front-total-container">
+            <div class="main__s1-front-container">
+                <div class="main__s1-img-container">
+                    <img src="imagenes/fundacion-caja-rural-burgos-tienda-online.jpg" alt="Tu tienda online" name="Tu tienda online">
+                </div>
+                <div class="main__s1-text-container">
+                    <h4>Los mejores productos, a los mejores precios.</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="products-total-container">
+            <h2 id="products-title"></h2>
+        </section>
+        <div id="login-display" class="login-container">
+            <div id="my-account-login">
+                    <div id="close-login" class="close-container">
+                        <i class="fa-sharp fa-solid fa-xmark"></i>
+                    </div>
+                <form action="">
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" type="email" required>
+                    <label for="password">Contraseña</label>
+                    <input id="password" type="password" required>
+                    <input type="submit" value="Iniciar sesión"></input>
+                </form>
+            </div>
+        </div>
     </main>
-
-    <!-- Pongo acá las etiquetas del código y del css porque de esta forma primero se carga todo el documento HTML y luego el código y la hoja de estilos. Si lo pongo en el head el js no funcionaría
-    ya que al cargar primero el código no encontraría los elementos, o las ids que uso en el archivo JS. Cómo por ejemplo acá: const HTMLresponse = document.querySelector("#products-container"); 
-    products-container es la id de la etiqueta main. Si carga primero el js antes que <main>, nunca la va a encontrar porque no existe y tira error.-->
-
     <script src="code.js"></script>
     <link rel="stylesheet" href="styles.css">
-
 </body>
 </html>

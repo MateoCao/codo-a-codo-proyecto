@@ -1,139 +1,213 @@
-// Lo verde son comentarios, como en HTML, pero en js se hacen con las barritas //
-
-// Declaro la constante API_URL y la igualo a la URL de la API. Basicamente API_URL "se convierte en al URL de la página de la API. Así se me hace más práctico trabajar con al URL de la API sin tener que copiarla"
+// API
 
 const API_URL = "https://fakestoreapi.com";
 
-// Selecciono la etiqueta main en el index.html mediante la id
+// Creando nodos DOM
 
-const HTMLresponse = document.querySelector("#products-container");
+const body = document.querySelector("#root");
+const main = document.querySelector("#probando123");
+const HTMLresponse = document.querySelector("#products-total-container");
+const productsContainer = document.createElement("div");
+const productsTitleContainer = document.querySelector("#products-title");
+let productsTitle = "Productos destacados";
 
-// Creo una etiqueta/elemento div "padre" 
+// Selección de categoría
 
-const div = document.createElement("div");
+const productsWomenClothing = document.querySelector("#women-clothing");
+const productsMenClothing = document.querySelector("#men-clothing");
+const productsJewelery = document.querySelector("#jewelery");
+const productsElectronics = document.querySelector("#electronics");
+const productMostRated = document.querySelector("#most-rated");
+let productValue = "most rated";
 
-// Uso la API con fetch, especificamente los productos
+//Mostrando y eligiendo categoria
 
-fetch(`${API_URL}/products`)
-    .then((res) => res.json())
-    .then((products) => {  
-      
-      /* 
-        El "forEach()" es un método, lo que hace básicamente es crear un bucle que recorre los elementos de un array (un array es un tipo de dato que permite almacenar otros datos de una 
-        manera ordenada. Si quieren fijense en la consola del navegador, ahí les va a salir todos los productos en forma de array). Por cada elemento que existe en el array (en este caso son 20),
-        va a crear 3 etiquetas html (div, img, a. Esto lo hice así para hacer las cosas más fáciles y rápidas y no ir creando las etiquetas html necesarias manualmente, una por una. Igualmente creeo
-        que es "buena práctica" hacerlo así)
-      
-      */
-      products.forEach((product)=> {
+mostrarProductosCategorias();
 
-        //Creo los elementos div, img y a y los igualo a variables 
+productsWomenClothing.addEventListener("click", () => {
+  borrarContenido();
+  productsTitle = "Indumentaria mujer";
+  productValue = "women's clothing";
+  mostrarProductosCategorias();
+})
 
-          let elem = document.createElement("div");
-          let img = document.createElement("img");
-          let productLink = document.createElement("a");
+productsMenClothing.addEventListener("click", () => {
+  borrarContenido();
+  productsTitle = "Indumentaria hombre";
+  productValue = "men's clothing";
+  mostrarProductosCategorias();
+})
 
-        /* Creo un nodo de texto para la etiqueta <a>. Un nodo de texto en este caso es el texto que uno escribe dentro de la etiqueta.
-        Es como si estuviera escribiendo en el html <a href="URL del producto"> Click acá </a> 
-        */
+productsJewelery.addEventListener("click", () => {
+  borrarContenido();
+  productsTitle = "Accesorios";
+  productValue = "jewelery";
+  mostrarProductosCategorias();
+})
 
-          productLink.appendChild(
-            document.createTextNode(`Click acá`)
-          )
+productsElectronics.addEventListener("click", () => {
+  borrarContenido();
+  productsTitle = "Tecnología";
+  productValue = "electronics";
+  mostrarProductosCategorias();
+})
 
-        // Le doy una clase a los divs que creé anteriormente. Esto escrito en el html sería así <div class="hola"> Nombre del producto, Precio del producto </div>
-          elem.classList.add("hola");
+productMostRated.addEventListener("click", () => {
+  borrarContenido();
+  productsTitle = "Productos destacados";
+  productValue = "most rated";
+  mostrarProductosCategorias();
+})
 
-        /* Acá tmb creo un nodo de texto. Cuando escribo ${product.title}, ${product.price}, toy seleccionando el titulo y precio de cada producto en cada recorrida del array. Entonces de esta
-        manera cada div creado tiene su correspondiente nombre y precio (igual esto despues vemos si lo cambiamos, lo puse para ver si andaba y si me acordaba como hacerlo)
-        */
-          
-          elem.appendChild(
-          document.createTextNode(`${product.title}, ${product.price}`)
-          );
+// // Limpiar contenido página
 
-        // Acá le doy una clase a las etiquetas <img>. Lo de las clases lo hice para darle estilos con CSS.
+const borrarContenido = () => {
+  productsContainer.innerHTML = "";
+  productsTitleContainer.innerHTML = "";
+  footer.innerHTML = "";
+}
 
-          img.classList.add("img-product");
+//FOOTER
 
-        /* con .setAtrribute() se puede cambiar los parámetros de las etiquetas html, pide 2 datos a completar. Primero el parámetro (en este caso src) y después el valor. En este caso es la URL
-        de la imagen de cada producto. Esto se lo hice a la etiqueta <img>
-        */
+const footer = document.createElement("footer");
+footer.classList.add("footer-container");
 
-          img.setAttribute("src", `${product.image}`);
 
-        /* 
-            Acá hago lo mismo que antes, pero con la etiqueta <a> </a>. Cambio el valor de href por la URL de cada producto. (Hay algunas que no andan porque no creé los archivos HTML. 
-            Esas páginas no tienen hoja de estilos, pero solamente para esas crearíamos un archivo css para todas, total son todas iguales. Si le agregamos 1 página para cada producto obvio que
-            tendríamos mucho más que las 4 que nos piden pero supongo que contarían como una jajaja. )
-        */
 
-          productLink.setAttribute("href", `product-pages/${product.title}.html`);
+// Consumo de 
 
-        /* 
-          con .appendChild() lo que se hace es insertar un nodo (la etiqueta), como hijo de otra etiqueta. En el primer caso la variable img que es la etiqueta <img> queda como hijo de elem
-           que sería la etiqueta <div>. Esto todo lo había declarado antes, al principio del bucle. 
-        */
+function mostrarProductosCategorias() {
+  fetch(`${API_URL}/products`)
+  .then((res) => res.json())
+  .then((products) => {
 
-          elem.appendChild(img);
-          elem.appendChild(productLink);
+    let filteredProducts;
 
-          // La variable div es la etiqueta <div>  padre que había creado fuera de la variable, antes del fetch. Hago lo mismo que arriba.
+    if(productValue == "most rated") {
+      filteredProducts = products.filter(product => product.rating.rate >= 4.2);
+    } else {
+      filteredProducts = products.filter(product => product.category === productValue);
+    }
+    
+    filteredProducts.forEach((product)=> {
 
-          div.appendChild(elem);
+      // Creando nodos DOM
 
-          // Acá le doy una clase a la etiqueta div padre
+      let productPriceContainer = document.createElement("div");
+      let productItemContainer = document.createElement("a");
+      let productItem = document.createElement("div");
+      let productNameContainer = document.createElement("div");
+      let productRatingContainer = document.createElement("div");
+      let productImgContainer = document.createElement("div");
+      let productImgTotalContainer = document.createElement("div");
+      let productName = document.createElement("h3");
+      let productPrice = document.createElement("h4");
+      let productRating = document.createElement("h4")
+      let productImg = document.createElement("img");
 
-          div.classList.add("products-total-container");
-      });
+      productName.appendChild(
+        document.createTextNode(product.title)
+      );
 
-      /* 
-        Y acá por último defino como hija a la etiqueta div padre con respecto a la etiqueta main ya creada en el documento html y de esta forma inserto todo este quilombo de arriba en el
-        documento HTML
-      */
+      productPrice.appendChild(
+        document.createTextNode(`Precio: $${product.price}`)
+      );
 
-      HTMLresponse.appendChild(div);
+      productRating.appendChild(
+        document.createTextNode(`Rating: ${product.rating.rate}`)
+      )
 
-      // El console.log() sirve para mostrar algo en consola. En este caso le pasé "products", que sería todo el array con todos los productos. No modifica nada de la página.
+      // Dando clases y atributos
 
-      console.log(products);
+      productItemContainer.setAttribute("href", `product-pages/${product.title}.html`);
+      productItemContainer.classList.add("main__product-item-container")
+      productItem.classList.add("product");
+      productNameContainer.classList.add("productNameContainer");
+      productPriceContainer.classList.add("productPriceContainer");
+      productRatingContainer.classList.add("productRatingContainer");
+      productImgTotalContainer.classList.add("productImgTotalContainer");
+      productImg.classList.add("img-product");
+      productsContainer.classList.add("products-container");
+
+      productImg.setAttribute("src", `${product.image}`);
+
+        // Asignando hijos
+
+      productNameContainer.appendChild(productName);
+      productPriceContainer.appendChild(productPrice);
+      productRatingContainer.appendChild(productRating);
+      productImgContainer.appendChild(productImg);
+      productImgTotalContainer.appendChild(productImgContainer)
+      productItem.appendChild(productImgTotalContainer);
+      productItem.appendChild(productNameContainer);
+      productItem.appendChild(productPriceContainer);
+      productItem.appendChild(productRatingContainer);
+      productItemContainer.appendChild(productItem);
+      productsContainer.appendChild(productItemContainer);
+
+        
+        
+    });
+
+    productsTitleContainer.appendChild(
+      document.createTextNode(productsTitle)
+    );
+
+    HTMLresponse.appendChild(productsTitleContainer);
+    HTMLresponse.appendChild(productsContainer);
+    main.appendChild(HTMLresponse);
+    body.style.height = `${productsContainer.offsetHeight}px`
+    body.appendChild(main);
+    body.appendChild(footer);
+    console.log(products);
 });
-
-/* 
-  Dejo el código completo sin los comentarios:
-
-const API_URL = "https://fakestoreapi.com";
-
-const HTMLresponse = document.querySelector("#products-container");
-const div = document.createElement("div");
+};
 
 
-fetch(`${API_URL}/products`)
-    .then((res) => res.json())
-    .then((products) => {         
-      products.forEach((product)=> {
 
-          let elem = document.createElement("li");
-          let img = document.createElement("img");
-          let productLink = document.createElement("a");
+// Login display
 
-          productLink.appendChild(
-            document.createTextNode(`Click acá`)
-          )
-          elem.classList.add("hola")
-          elem.appendChild(
-          document.createTextNode(`${product.title}, ${product.price}`)
-          );
-          img.classList.add("img-product");
-          img.setAttribute("src", `${product.image}`);
-          productLink.setAttribute("href", `product-pages/${product.title}.html`)
-          elem.appendChild(img);
-          elem.appendChild(productLink);
-          div.appendChild(elem);
-          div.classList.add("products-total-container");
-      });
+const myAccount = document.querySelector("#my-account");
+const login = document.querySelector("#login-display");
+const closeLogin = document.querySelector("#close-login");
 
-      HTMLresponse.appendChild(div);
-      console.log(products)
-});
-*/
+myAccount.addEventListener("click", () => {
+  login.classList.add("visible")
+})
+
+closeLogin.addEventListener("click", () => {
+  login.classList.remove("visible")
+})
+
+//Categorias productos hamburguesa
+
+const navProductsMenu = document.querySelector("#products-categories");
+const productsButton = document.querySelector("#products-button");
+
+productsButton.addEventListener("mouseover", () => {
+  navProductsMenu.classList.add("visible")
+})
+
+navProductsMenu.addEventListener("mouseleave", () => {
+  navProductsMenu.classList.remove("visible")
+})
+
+//POSITION FIXED
+
+const navTopBarContainer = document.querySelector('.header__nav-top-bar-container');
+const navTopBarContainerPosition = navTopBarContainer.offsetTop;
+const navLowBarContainer = document.querySelector('.header__nav-low-bar-container');
+
+const handleScroll = () => {
+  if (window.pageYOffset > navTopBarContainerPosition) {
+    navLowBarContainer.style.position = 'fixed';
+    navLowBarContainer.style.top = '0';
+    navLowBarContainer.style.border = "1px solid #6e6e6e";
+    navLowBarContainer.style.borderTop = "none";
+  } else {
+    navLowBarContainer.style.position = 'static';
+    navLowBarContainer.style.border = "none"
+  }
+}
+
+window.addEventListener('scroll', handleScroll);
