@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/b99a20d6cb.js" crossorigin="anonymous"></script>
     <title>Codo a codo proyecto</title>
 </head>
-<body id="root">
+<body>
     <header>
         <div class="header__logo">
             <div>
@@ -61,16 +61,16 @@
                             <a id="most-rated" href="#products-total-container">Productos destacados</a>
                         </li>
                         <li>
-                            <a id="women-clothing" href="#products-total-container">Indumentaria mujeres</a>
+                            <a id="women-clothing" href="#women-clothing-title">Indumentaria mujeres</a>
                         </li>
                         <li>
-                            <a id="men-clothing" href="#products-total-container">Indumentaria hombres</a>
+                            <a id="men-clothing" href="#men-clothing-title">Indumentaria hombres</a>
                         </li>
                          <li>
-                            <a id="electronics" href="#products-total-container">Tecnología</a>
+                            <a id="electronics" href="#electronics-title">Tecnología</a>
                          </li>
                          <li>
-                            <a id="jewelery" href="#products-total-container">Accesorios</a>
+                            <a id="jewelery" href="#jewelery-title">Accesorios</a>
                         </li>
                     </ul>
                 </div>
@@ -87,7 +87,7 @@
             </div>
         </nav>
     </header>
-    <main id="probando123">
+    <main>
         <section class="main__s1-front-total-container">
             <div class="main__s1-front-container">
                 <div class="main__s1-img-container">
@@ -98,9 +98,28 @@
                 </div>
             </div>
         </section>
-
-        <section id="products-total-container">
-            <h2 id="products-title"></h2>
+        <section  class="main__products-section">
+            <div>
+                <h2 class="main__category-title">Mejor valorados</h2>
+                <div id="products__most-rated-container" class="contenedor-productos"></div>
+                
+            </div>
+            <div>
+                <h2 class="main__category-title" id="women-clothing-title">Indumentaria mujer</h2>
+                <div id="products__women-clothing-container" class="contenedor-productos"></div>
+            </div>
+            <div>
+                <h2 class="main__category-title" id="men-clothing-title">Indumentaria hombre</h2>
+                <div id="products-men-clothing-container" class="contenedor-productos"></div>
+            </div>
+            <div>
+                <h2 class="main__category-title" id="electronics-title">Tecnología</h2>
+                <div id="products-electronics-container" class="contenedor-productos"></div>
+            </div>
+            <div>
+                <h2 class="main__category-title" id="jewelery-title">Accesorios</h2>
+                <div id="products-jewelery-container" class="contenedor-productos"></div>
+            </div>
         </section>
         <div id="login-display" class="login-container">
             <div id="my-account-login">
@@ -117,6 +136,7 @@
             </div>
         </div>
     </main>
+    <footer>FOOTER</footer>
     <script src="code.js"></script>
     <link rel="stylesheet" href="styles.css">
 </body>
