@@ -2,10 +2,6 @@
 
 const API_URL = "https://fakestoreapi.com";
 
-// Creando nodos DOM
-
-const mostRatedContainer = document.querySelector("#products__most-rated-container");
-
 // Seleccionando secciones para cada categoría en un objeto
 
 const productCategories = {
@@ -94,7 +90,7 @@ const closeLogin = document.querySelector("#close-login");
 
 myAccount.addEventListener("click", () => {
   login.classList.add("visible")
-});
+})
 
 closeLogin.addEventListener("click", () => {
   login.classList.remove("visible")

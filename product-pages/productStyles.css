@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: white;
+    height: 170px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header__logo {
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(#45bfe0, #39b3d5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header__logo-text {
+    font-size: 1.1rem;
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    height: 140px;
+}
+
+.header__nav-top-bar-container {
+    display: flex; 
+    justify-content: space-around;
+    height: 70px;
+    width: 68%;
+    align-self: center;
+    padding: 10px 10px 0 10px;
+    margin-top: 5px;
+    border-bottom: 0.5px solid rgb(204, 204, 204);
+}
+
+.header__nav-name-container {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-right: 2%;
+}
+
+.header__nav-search-bar-container {
+    margin-top: 10px;
+    width: 320px;
+}
+
+.header__nav-search-bar-container > i {
+    position: relative;
+    bottom: 27px;
+    left: 280px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.header__nav-top-options-container {
+    list-style-type: none;
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    color: #3a3a3a;
+}
+
+.login-container {
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: "Abel", sans-serif;
+}
+
+.login-container.visible {
+    display: flex;
+    z-index: 60;
+}
+
+#my-account-login {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 30px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#my-account-login > form {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+#my-account-login > form > label {
+    margin-top: 10px;
+}
+
+#my-account-login > form > input {
+    height: 30px;
+    width: 90%;
+    margin-top: 5px;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+}
+
+#my-account-login > form > :last-child {
+    height: 25px;
+    width: 25%;
+    margin-top: 10px;
+    border: 1.5px solid #3a3a3a;
+    border-radius: 5px;
+    background-color: #45bfe0;
+    cursor: pointer;
+}
+
+#my-account-login > form > :last-child:focus {
+    background-color: #3ba5c2;
+}
+
+.login__register {
+    align-self: flex-start;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.close-container {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.header__nav-top-options-container > li:hover{
+    color: black;
+}
+
+.header__nav-my-account-container {
+    margin-top: 6px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header__nav-my-account-container > p {
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
+.header__nav-cart-container {
+    margin-top: 6px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header__nav-cart-container > p {
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
+.header__nav-logo-container > i {
+    font-size: 1.5rem;
+}
+
+.header__nav-logo-container {
+    justify-self: flex-end;
+    padding: 10px;
+    margin-right: 60px;
+    font-size: 20px;
+}
+
+#search-bar {
+    box-sizing: border-box;
+    margin: 2px 100px 0 0;
+    width: 300px;
+    height: 35px;
+    box-sizing: content-box;
+    border: 1.5px solid rgb(75, 75, 75);
+    border-radius: 2px;
+    background-color: rgb(242, 242, 242);
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#search-bar:focus {
+    outline: none;
+    background-color: white;
+}
+
+.header__nav-low-bar-container{
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-end;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 70%;
+    height: 60px;
+    background-color: white;
+    z-index: 20;
+}
+
+.header__nav-low-options-container {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    align-content: center;
+    list-style-type: none;
+    width: 450px;
+}
+
+.header__nav-low-options-container > li{
+    font-size: 20px;
+    font-family: "Abel", sans-serif;
+    font-weight: 600;
+    margin: 0.5% 5% 0 5%;
+}
+.header__nav-low-options-container > li > a {
+    color: #3a3a3a;
+    text-decoration: none;
+}
+
+.header__nav-low-options-container > li > a:hover{
+    color: #000000;
+}
