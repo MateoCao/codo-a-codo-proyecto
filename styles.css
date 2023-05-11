@@ -9,11 +9,15 @@ html {
     scroll-behavior: smooth;
 }
 
+/* INICIO HEADER */
+
 header {
     background-color: white;
     height: 170px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+/* INICIO TOP HEADER */
 
 .header__logo {
     width: 100%;
@@ -32,11 +36,17 @@ header {
     font-weight: bold;
 }
 
+/* FIN TOP HEADER */
+
+/* INICIO BOTTOM (NAV) HEADER */
+
 nav {
     display: flex;
     flex-direction: column;
     height: 140px;
 }
+
+/* INICIO NAV TOP */
 
 .header__nav-top-bar-container {
     display: flex; 
@@ -76,6 +86,8 @@ nav {
     justify-content: space-between;
     color: #3a3a3a;
 }
+
+/* INICIO LOGIN */
 
 .login-container {
     position: fixed;
@@ -124,8 +136,22 @@ nav {
     height: 30px;
     width: 90%;
     margin-top: 5px;
+    padding: 5px;
     border: 1px solid #3a3a3a;
     border-radius: 5px;
+}
+
+.correo-no-registrado__contenedor {
+    height: 30px;
+}
+
+.correo-no-registrado__contenedor > p {
+    display: none;
+}
+
+.correo-no-registrado__contenedor-visible > p {
+    display: block;
+    color: #f52a2a;
 }
 
 #my-account-login > form > :last-child {
@@ -145,13 +171,219 @@ nav {
 .login__register {
     align-self: flex-start;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 22px;
+}
+
+#register-trigger {
+    background-color: white;
+    font-size: 20px;
+    color: #245def;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#register-trigger:focus {
+    color: #143382;
 }
 
 .close-container {
     align-self: flex-end;
     cursor: pointer;
 }
+
+/* FIN LOGIN */
+
+/* INICIO REGISTER */
+
+.register-total-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+}
+
+.register-total-container.visible {
+    display: flex;
+    z-index: 30;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 490px;
+    padding: 30px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.register-form__close-container {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.register-form__close-container > i {
+    font-size: 25px;
+    color: #484848;
+}
+
+.register-form__close-container > i:hover {
+    color: black;
+}
+
+#form-register {
+    display: flex;
+    height: 100%;
+    flex-flow: column wrap;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.formulario__grupo {
+    margin: 5px 0;
+    width: 50%;
+}
+
+.formulario__grupo > label {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.formulario__grupo-input > input {
+    width: 90%;
+    height: 35px;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: 2px solid black;
+    font-size: 16px;
+}
+
+.formulario__grupo-input > input:focus {
+    border: 3px solid #17667c;
+    outline: none;
+}
+
+#grupo__submit {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    margin-top: 35px;
+}
+
+#grupo__submit > input {
+    width: 45%;
+    height: 50px;
+    font-size: 22px;
+    align-self: center;
+    background-color: #2b8ca8;
+    border: none;
+    border-radius: 3px;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+#grupo__submit > input:hover {
+    background-color: #0f495a;
+    color: white;
+}
+
+#grupo__submit > div {
+    width: 100%;
+}
+
+.form__input-error {
+    margin-bottom: 24px;
+    color: #f52a2a;
+    height: 30px;
+}
+
+.form__input-error > p {
+    display: none;
+}
+
+.form__mensaje {
+   display: none; 
+}
+
+.form__mensaje-exito {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* CORRECTOS VISIBLES */
+
+.form__mensaje-exito > p {
+    color: #2bb31c;
+    font-size: 20px;
+}
+
+.fa-circle-check {
+    position: relative;
+    right: 30px;
+    top: 1px;
+    color: #2bb31c;
+    font-size: 20px;
+}
+
+
+/* INCORRECTO VISIBLES */
+
+.form__input-error-visible > p {
+    font-size: 16px;
+    display: block;
+}
+
+.formulario__incorrecto > label {
+    color: #f52a2a;
+}
+
+.formulario__incorrecto > div > input {
+    border: 2px solid #f52a2a;
+}
+
+.formulario__incorrecto > div > input:focus {
+    border: 2px solid #f52a2a;
+}
+
+.fa-circle-xmark {
+    position: relative;
+    right: 30px;
+    top: 1px;
+    color: #f52a2a;
+    font-size: 20px;
+}
+
+.form__mensaje-incorrecto {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    background-color: #f52a2a;
+    height: 35px;
+}
+
+.form__mensaje-incorrecto > p {
+    color: #fffefe;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+/* FIN REGISTER */
 
 .header__nav-top-options-container > li:hover{
     color: black;
@@ -212,6 +444,10 @@ nav {
     outline: none;
     background-color: white;
 }
+
+/* FIN NAV TOP */
+
+/* INICIO NAV BOTTOM */
 
 .header__nav-low-bar-container{
     display: flex;
@@ -303,12 +539,21 @@ nav {
     color: #000000;
 } 
 
+/* FIN NAV BOTTOM */
+/* FIN NAV */
+
+/* FIN HEADER */
+
+/* INICIO MAIN */
+
 main {
     background-color: #ebebeb;
     width: 70%;
     margin: auto;
     font-family: "Abel", sans-serif;
 }
+
+/* INICIO MAIN PORTADA */
 
 .main__s1-front-total-container {
     background-color: #39b3d5;
@@ -369,6 +614,9 @@ main {
     margin: 20px 0;
 }
 
+/* FIN MAIN PORTADA */
+
+/* INICIO CONTENEDOR PRODUCTOS */
 
 .products-container {
     display: flex;
@@ -473,6 +721,11 @@ main {
     font-size: 15px;
 }
 
+/* FIN CONTENEDOR PRODUCTOS */
+/* FIN MAIN */
+
+/* INICIO FOOTER */
+
 footer {
     display: flex;
     justify-content: space-between;
@@ -505,6 +758,10 @@ footer {
     color: #eeefef;
 }
 
+/* FIN FOOTER */
+
+/* INICIO SCROLL BAR */
+
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -521,3 +778,5 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
     background: #3aa8c7;
 }
+
+/* FIN SCROLL BAR */

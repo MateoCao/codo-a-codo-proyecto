@@ -89,11 +89,21 @@ const login = document.querySelector("#login-display");
 const closeLogin = document.querySelector("#close-login");
 
 myAccount.addEventListener("click", () => {
-  login.classList.add("visible")
-})
+  login.classList.add("visible");
+});
 
 closeLogin.addEventListener("click", () => {
-  login.classList.remove("visible")
+  login.classList.remove("visible");
+  formLogin.reset(); 
+});
+
+//Login form
+
+const formLogin = document.getElementById("formulario-login");
+
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
+  formLogin.querySelector(".correo-no-registrado__contenedor").classList.add("correo-no-registrado__contenedor-visible");
 });
 
 //Categorias productos hamburguesa
@@ -102,11 +112,11 @@ const navProductsMenu = document.querySelector("#products-categories");
 const productsButton = document.querySelector("#products-button");
 
 productsButton.addEventListener("mouseover", () => {
-  navProductsMenu.classList.add("visible")
+  navProductsMenu.classList.add("visible");
 });
 
 navProductsMenu.addEventListener("mouseleave", () => {
-  navProductsMenu.classList.remove("visible")
+  navProductsMenu.classList.remove("visible");
 });
 
 //POSITION FIXED
@@ -138,4 +148,34 @@ window.addEventListener("scroll", () => {
       products[i].classList.add("product-animated");
     };
   };
+});
+
+
+// Formulario registro
+
+const registerTrigger = document.getElementById("register-trigger");
+const registerDisplay = document.getElementById("register-display");
+const closeRegister = document.getElementById("close-register");
+const formRegister= document.getElementById("form-register");
+
+registerTrigger.addEventListener("click", () => {
+  formLogin.querySelector(".correo-no-registrado__contenedor").classList.remove("correo-no-registrado__contenedor-visible");
+  formLogin.reset(); 
+  login.classList.remove("visible");
+  registerDisplay.classList.add("visible");
+});
+
+closeRegister.addEventListener("click", () => {
+  registerDisplay.classList.remove("visible");
+  document.querySelectorAll(".formulario__grupo-input i").forEach((icon) => {
+    icon.classList.remove("fa-circle-check", "fa-circle-xmark");
+  });
+  document.querySelectorAll(".formulario__grupo").forEach((div) => {
+    div.classList.remove("formulario__incorrecto");
+  });
+  document.querySelectorAll(".form__input-error").forEach((div) => {
+    div.classList.remove("form__input-error-visible");
+  });
+  document.getElementById("form__mensaje").classList.remove("form__mensaje-incorrecto", "form__mensaje-exito");
+  formRegister.reset();
 });

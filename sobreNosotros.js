@@ -5,9 +5,9 @@ const login = document.querySelector("#login-display");
 const closeLogin = document.querySelector("#close-login");
 
 myAccount.addEventListener("click", () => {
-  login.classList.add("visible")
-})
+  login.classList.add("visible");
+});
 
 closeLogin.addEventListener("click", () => {
-  login.classList.remove("visible")
+  login.classList.remove("visible");
 });
