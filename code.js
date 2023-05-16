@@ -153,6 +153,7 @@ window.addEventListener("scroll", () => {
 
 // Formulario registro
 
+const main = document.getElementById("main");
 const registerTrigger = document.getElementById("register-trigger");
 const registerDisplay = document.getElementById("register-display");
 const closeRegister = document.getElementById("close-register");
@@ -163,6 +164,7 @@ registerTrigger.addEventListener("click", () => {
   formLogin.reset(); 
   login.classList.remove("visible");
   registerDisplay.classList.add("visible");
+  main.classList.add("hidden");
 });
 
 closeRegister.addEventListener("click", () => {
@@ -177,5 +179,39 @@ closeRegister.addEventListener("click", () => {
     div.classList.remove("form__input-error-visible");
   });
   document.getElementById("form__mensaje").classList.remove("form__mensaje-incorrecto", "form__mensaje-exito");
+  main.classList.remove("hidden");
   formRegister.reset();
+});
+
+
+// Mobile nav display
+
+const menuMobileTrigger = document.getElementById("menu__mobile-trigger");
+const menuMobile = document.getElementById("menu__mobile")
+const menuMobileClose = document.getElementById("menu__mobile-close");
+const mobileCategories = document.querySelectorAll(".menu__mobile-category-list li");
+const mobilePages = document.querySelectorAll(".menu__mobile-options-list li");
+
+mobileCategories.forEach((category) => {
+  category.addEventListener("click", () => {
+    menuMobile.classList.remove("visible");
+    main.classList.remove("hidden");
+  })
+});
+
+mobilePages.forEach((page) => {
+  page.addEventListener("click", () => {
+    menuMobile.classList.remove("visible");
+    main.classList.remove("hidden");
+  })
+});
+
+menuMobileClose.addEventListener("click", () => {
+  menuMobile.classList.remove("visible");
+  main.classList.remove("hidden");
+});
+
+menuMobileTrigger.addEventListener("click", () => {
+  menuMobile.classList.add("visible");
+  main.classList.add("hidden");
 });
