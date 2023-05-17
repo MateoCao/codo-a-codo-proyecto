@@ -792,6 +792,11 @@ footer {
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
+    body.hidden {
+        overflow: hidden;
+        height: 100vh;
+    }
+
     header {
         height: 80px;
         width: 100%;
@@ -1023,6 +1028,11 @@ footer {
 }
 
 @media (max-width: 767px) {
+    body.hidden {
+        overflow: hidden;
+        height: 100vh;
+    }
+
     header {
         height: 80px;
         width: 100%;
@@ -1140,7 +1150,11 @@ footer {
 
     .menu__mobile-total-container.visible {
         display: flex;
-        animation:  slideInRight 1s;
+        animation:  slideInRight 0.5s;
+    }
+
+    .menu__mobile-total-container.invisible {
+        animation:  slideOutLeft 0.5s;
     }
 
     @keyframes slideInRight {
@@ -1150,6 +1164,16 @@ footer {
     
         to {
             transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOutLeft {
+        from {
+            transform: translateX(0);
+        }
+    
+        to {
+            transform: translateX(100vw);
         }
     }
 
@@ -1233,6 +1257,34 @@ footer {
 
     /* Register display */
 
+    .register-total-container.visible {
+        animation: slideInBottom 0.5s;
+    }
+
+    .register-total-container.invisible {
+        animation: slideInTop 0.5s;
+    }
+
+    @keyframes slideInBottom {
+        from {
+            transform: translateY(100vh);
+        }
+    
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInTop {
+        from {
+            transform: translateY(0);
+        }
+    
+        to {
+            transform: translateY(100vh);
+        }
+    }
+
     .register-container {
         position: relative;
         width: 100vw;
@@ -1298,10 +1350,6 @@ footer {
 
     main {
         width: 100%;
-    }
-
-    main.hidden {
-        position: fixed;
     }
 
     .main__s1-front-total-container {

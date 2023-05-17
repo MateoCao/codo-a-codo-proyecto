@@ -152,7 +152,7 @@ window.addEventListener("scroll", () => {
 
 // Formulario registro
 
-const main = document.getElementById("main");
+const body = document.getElementById("body");
 const registerTrigger = document.getElementById("register-trigger");
 const registerDisplay = document.getElementById("register-display");
 const closeRegister = document.getElementById("close-register");
@@ -162,12 +162,16 @@ registerTrigger.addEventListener("click", () => {
   formLogin.querySelector(".correo-no-registrado__contenedor").classList.remove("correo-no-registrado__contenedor-visible");
   formLogin.reset(); 
   login.classList.remove("visible");
+  registerDisplay.classList.remove("invisible");
   registerDisplay.classList.add("visible");
-  main.classList.add("hidden");
+  body.classList.add("hidden");
 });
 
 closeRegister.addEventListener("click", () => {
-  registerDisplay.classList.remove("visible");
+  registerDisplay.classList.add("invisible");
+  setTimeout(() => {
+    registerDisplay.classList.remove("visible");
+  }, 480)
   document.querySelectorAll(".formulario__grupo-input i").forEach((icon) => {
     icon.classList.remove("fa-circle-check", "fa-circle-xmark");
   });
@@ -178,7 +182,7 @@ closeRegister.addEventListener("click", () => {
     div.classList.remove("form__input-error-visible");
   });
   document.getElementById("form__mensaje").classList.remove("form__mensaje-incorrecto", "form__mensaje-exito");
-  main.classList.remove("hidden");
+  body.classList.remove("hidden");
   formRegister.reset();
 });
 
@@ -194,23 +198,27 @@ const mobilePages = document.querySelectorAll(".menu__mobile-options-list li");
 mobileCategories.forEach((category) => {
   category.addEventListener("click", () => {
     menuMobile.classList.remove("visible");
-    main.classList.remove("hidden");
+    body.classList.remove("hidden");
   })
 });
 
 mobilePages.forEach((page) => {
   page.addEventListener("click", () => {
     menuMobile.classList.remove("visible");
-    main.classList.remove("hidden");
+    body.classList.remove("hidden");
   })
 });
 
 menuMobileClose.addEventListener("click", () => {
-  menuMobile.classList.remove("visible");
-  main.classList.remove("hidden");
+  menuMobile.classList.add("invisible");
+  setTimeout(() => {
+    menuMobile.classList.remove("visible");
+    body.classList.remove("hidden");
+  }, 480)
 });
 
 menuMobileTrigger.addEventListener("click", () => {
+  menuMobile.classList.remove("invisible");
   menuMobile.classList.add("visible");
-  main.classList.add("hidden");
+  body.classList.add("hidden");
 });
