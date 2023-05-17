@@ -115,7 +115,7 @@ formulario.addEventListener("submit", (e) => {
 		userName : inputNombre.value,
 		userEmail: inputEmail.value,
 		userUser : inputUser.value,
-		myName: "Lorem",
+		myName: "ShopSmart",
 		myEmail: "mateocaoprueba@gmail.com",
 		message: "Te has registrado exitosamente"
 	};

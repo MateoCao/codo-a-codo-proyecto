@@ -931,7 +931,8 @@ footer {
     }
 
     .menu__mobile-close-container > i {
-        font-size: 32px;
+        font-size: 24px;
+        color: #414141;
     }
 
     .menu__mobile-nav-container {
@@ -946,20 +947,15 @@ footer {
     }
 
     .menu__mobile-category-list > li {
-        font-size: 1.5rem;
-        border-bottom: 1px solid #1f1f1f;
-        height: 60px;
-    }
-
-    .menu__mobile-category-list > li:first-child {
-        border-top: 1px solid #1f1f1f;
+        font-size: 1rem;
+        height: 45px;
     }
 
     .menu__mobile-category-list > li > a {
         display: flex;
         justify-content: space-between;
         text-decoration: none;
-        color: black;
+        color: #414141;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         background-color: white;
@@ -968,39 +964,48 @@ footer {
     }
 
     .menu__mobile-icon-container > i {
-        font-size: 42px;
+        position: relative;
+        top: 5px;
+        right: 5px;
+        font-size: 24px;
+        color: #414141;
     }
     
     .menu__mobile-options-list {
         justify-self: flex-end;
+        margin-bottom: 80px;
     }
 
     
 
     .menu__mobile-options-list > li {
-        font-size: 1.5rem;
-        border-bottom: 1px solid #1f1f1f;
-        height: 60px;
-        margin-left: 5px;
+        font-size: 1rem;
+        height: 45px;
     }
 
     .menu__mobile-options-list > li:first-child {
-        border-top: 1px solid #1f1f1f;
+        border-top: 1px solid #606060;
+        margin-top: 5px;
     }
 
     .menu__mobile-options-list > li > a {
         display: flex;
         justify-content: space-between;
         text-decoration: none;
-        color: black;
+        color: #606060;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         background-color: white;
         height: 100%;
+        margin-left: 5px;
     }
 
     main {
         width: 95%;
+    }
+
+    main.hidden {
+        position: fixed;
     }
     
     .main__s1-text-container {
@@ -1267,7 +1272,7 @@ footer {
 
     #grupo__submit {
         height: 50px;
-        margin-top: 10px;
+        margin-top: 0;
     }
 
     #grupo__submit > input {
@@ -1300,7 +1305,8 @@ footer {
     }
 
     .main__s1-front-total-container {
-        height: 500px;
+        height: 450px;
+        width: 98%;
     }
     
     .main__s1-front-container {
