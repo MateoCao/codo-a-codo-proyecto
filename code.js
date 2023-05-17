@@ -80,6 +80,9 @@ fetch(`${API_URL}/products`)
       renderDOM(product, categoryContainer);
     };
   });
+})
+.catch((error) => {
+  console.log("Error:", error);
 });
 
 // Login display
@@ -127,13 +130,9 @@ const navLowBarContainer = document.querySelector('.header__nav-low-bar-containe
 
 const handleScroll = () => {
   if (window.pageYOffset > navTopBarContainerPosition) {
-    navLowBarContainer.style.position = 'fixed';
-    navLowBarContainer.style.top = '0';
-    navLowBarContainer.style.border = "1px solid #6e6e6e";
-    navLowBarContainer.style.borderTop = "none";
+    navLowBarContainer.classList.add("fixed");
   } else {
-    navLowBarContainer.style.position = 'static';
-    navLowBarContainer.style.border = "none";
+    navLowBarContainer.classList.remove("fixed");
   };
 };
 

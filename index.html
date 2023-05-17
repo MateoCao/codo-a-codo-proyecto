@@ -10,9 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=DynaPuff&family=Montserrat:ital,wght@1,300&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="imagenes/ShopSmart.svg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/b99a20d6cb.js" crossorigin="anonymous"></script>
 
-    <title>Codo a codo proyecto</title>
+    <title>ShopSmart</title>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
         <!--Top header-->
         <div class="header__logo" id="top-page">
             <div>
-                <p class="header__logo-text">Lorem Ipsum</p>
+                <p class="header__logo-text">ShopSmart</p>
             </div>
             <p class="header__logo-text">Comprá</p>
             <p class="header__logo-text">¡Retirá tu compra en menos de 24hs!</p>
@@ -45,7 +46,7 @@
                     </div>
                     <div class="header__nav-name-container-mobile">
                         <h1>
-                            Lorem
+                            ShopSmart
                         </h1>
                     </div>
                 </div>
@@ -57,7 +58,7 @@
                     <div class="menu__mobile-nav-container">
                         <ul class="menu__mobile-category-list">
                             <li>
-                                <a id="menu__mobile-women-clothing" href="#women-clothing-title"> 
+                                <a href="#women-clothing-title"> 
                                     <p>
                                         Indumentaria mujer
                                     </p>
@@ -67,7 +68,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a id="menu__mobile-men-clothing" href="#men-clothing-title"> 
+                                <a href="#men-clothing-title"> 
                                     <p>
                                         Indumentaria hombre
                                     </p>
@@ -77,7 +78,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a id="menu__mobile-electronics" href="#electronics-title"> 
+                                <a href="#electronics-title"> 
                                     <p>
                                         Tecnología
                                     </p>
@@ -87,7 +88,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a id="menu__mobile-jewelery" href="#jewelery-title"> 
+                                <a href="#jewelery-title"> 
                                     <p>
                                         Accesorios
                                     </p>
@@ -117,14 +118,11 @@
 
                 <div class="header__nav-name-container">
                     <h1>
-                        Lorem
+                        ShopSmart
                     </h1>
                 </div>
 
-                <div class="header__nav-search-bar-container">
-                    <input type="text" id="search-bar" placeholder="Busca un producto" name="producto-buscado">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
+                
                 <ul class="header__nav-top-options-container">
                     <li id="my-account" class="header__nav-my-account-container">
                         <i class="fa-solid fa-user"></i>
@@ -185,7 +183,7 @@
                         <div id="close-login" class="close-container">
                             <i class="fa-sharp fa-solid fa-xmark"></i>
                         </div>
-                    <form id="formulario-login" action="">
+                    <form id="formulario-login">
                         <label for="email">Correo electrónico</label>
                         <input autocomplete="off" name="email" id="emailLogin" type="email" required>
                         <div class="correo-no-registrado__contenedor">
@@ -193,7 +191,7 @@
                         </div>
                         <label for="password">Contraseña</label>
                         <input name="password" id="password-login" type="password" required>
-                        <input type="submit" value="Iniciar sesión"></input>
+                        <input type="submit" value="Iniciar sesión">
                     </form>
                     <div class="login__register">
                         <p>
@@ -209,13 +207,13 @@
                     <div class="register-form__close-container">
                         <i class="fa-sharp fa-solid fa-xmark" id="close-register"></i>
                     </div>
-                    <form id="form-register" action="">
+                    <form id="form-register">
 
                         <!--Nombre-->
                         <div class="formulario__grupo" id="grupo__nombre">
                             <label for="name">Nombre completo</label>
                             <div class="formulario__grupo-input">
-                                <input autocomplete="words" name="name" id="name" type="text" required>
+                                <input autocomplete="name" name="name" id="name" type="text" required>
                                 <i class="fa-sharp fa-solid"></i>
                             </div>
                             
@@ -275,7 +273,7 @@
                         
                         <!--Submit-->
                         <div id="grupo__submit">
-                            <input type="submit" value="Registrarse"></input>
+                            <input type="submit" value="Registrarse">
                             <div class="form__mensaje" id="form__mensaje">
                                 <p class="registro-mensaje"></p>
                             </div>
@@ -297,10 +295,7 @@
         <section class="main__s1-front-total-container">
             <div class="main__s1-front-container">
                 <div class="main__s1-img-container">
-                    <img src="imagenes/fundacion-caja-rural-burgos-tienda-online.jpg" alt="Tu tienda online" name="Tu tienda online">
-                </div>
-                <div class="main__s1-text-container">
-                    <h4>Los mejores productos, a los mejores precios.</h4>
+                    <img src="imagenes/ShopSmart-page-logo.png" alt="ShopSmartLogo" title="ShopSmartLogo">
                 </div>
             </div>
         </section>
@@ -346,10 +341,10 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- Enviar email -->
-    <script type="text/javascript"
+    <script 
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     </script>
-    <script type="text/javascript">
+    <script>
    (function(){
       emailjs.init("PIFv0HhgaqzDe6knP");
    })();

@@ -50,7 +50,7 @@ nav {
 
 .header__nav-top-bar-container {
     display: flex; 
-    justify-content: space-around;
+    justify-content: space-between;
     height: 70px;
     width: 68%;
     align-self: center;
@@ -66,24 +66,14 @@ nav {
 .header__nav-name-container {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    margin-right: 2%;
-}
-
-.header__nav-search-bar-container {
-    margin-top: 10px;
-    width: 320px;
-}
-
-.header__nav-search-bar-container > i {
+    font-size: 1.5rem;
     position: relative;
-    bottom: 27px;
-    left: 280px;
-    cursor: pointer;
-    font-size: 18px;
+    left: 30px;
 }
 
 .header__nav-top-options-container {
+    position: relative;
+    right: 80px;
     list-style-type: none;
     display: flex;
     width: 250px;
@@ -464,15 +454,24 @@ nav {
 .header__nav-low-bar-container {
     display: flex;
     align-self: center;
+    position: static;
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-between;
+    border: none;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     width: 70%;
     height: 60px;
     background-color: white;
     z-index: 20;
+}
+
+.header__nav-low-bar-container.fixed {
+    position: fixed;
+    top: 0;
+    border: 1px solid #a9a9a9;
+    border-top: none;
 }
 
 #products-button {
@@ -582,8 +581,8 @@ main {
 }
 
 .main__s1-img-container {
-    height: 75%;
-    width: 75%;
+    height: 100%;
+    width: 100%;
     align-self: center;
 }
 
@@ -591,26 +590,6 @@ main {
     object-fit: contain;
     width: 100%;
     height: 100%;
-}
-
-.main__s1-text-container {
-    width: auto;
-    height: auto;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.main__s1-text-container > h4 {
-    font-size: 2rem;
-    font-family: 'DynaPuff', cursive;
-    font-weight: bold;
-    letter-spacing: 2px;
-    line-height: 35px;
-    color: #3238a2;
 }
 
 .main__category-title {
@@ -886,6 +865,7 @@ footer {
     .header__nav-top-options-container {
         list-style-type: none;
         display: flex;
+        right: 0;
         width: 170px;
         justify-content: space-around;
         color: #3a3a3a;
@@ -924,6 +904,7 @@ footer {
         padding: 0;
         right: 0;
         top: 0;
+        z-index: 100;
     }
 
     .menu__mobile-total-container.visible {
@@ -1110,6 +1091,7 @@ footer {
     .header__nav-top-options-container {
         list-style-type: none;
         display: flex;
+        right: 0;
         width: 170px;
         justify-content: space-around;
         color: #3a3a3a;
@@ -1148,6 +1130,7 @@ footer {
         padding: 0;
         right: 0;
         top: 0;
+        z-index: 100;
     }
 
     .menu__mobile-total-container.visible {
@@ -1174,7 +1157,8 @@ footer {
     }
 
     .menu__mobile-close-container > i {
-        font-size: 32px;
+        font-size: 24px;
+        color: #414141;
     }
 
     .menu__mobile-nav-container {
@@ -1189,20 +1173,15 @@ footer {
     }
 
     .menu__mobile-category-list > li {
-        font-size: 1.5rem;
-        border-bottom: 1px solid #1f1f1f;
-        height: 60px;
-    }
-
-    .menu__mobile-category-list > li:first-child {
-        border-top: 1px solid #1f1f1f;
+        font-size: 1rem;
+        height: 45px;
     }
 
     .menu__mobile-category-list > li > a {
         display: flex;
         justify-content: space-between;
         text-decoration: none;
-        color: black;
+        color: #414141;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         background-color: white;
@@ -1211,35 +1190,40 @@ footer {
     }
 
     .menu__mobile-icon-container > i {
-        font-size: 42px;
+        position: relative;
+        top: 5px;
+        right: 5px;
+        font-size: 24px;
+        color: #414141;
     }
     
     .menu__mobile-options-list {
         justify-self: flex-end;
+        margin-bottom: 80px;
     }
 
     
 
     .menu__mobile-options-list > li {
-        font-size: 1.5rem;
-        border-bottom: 1px solid #1f1f1f;
-        height: 60px;
-        margin-left: 5px;
+        font-size: 1rem;
+        height: 45px;
     }
 
     .menu__mobile-options-list > li:first-child {
-        border-top: 1px solid #1f1f1f;
+        border-top: 1px solid #606060;
+        margin-top: 5px;
     }
 
     .menu__mobile-options-list > li > a {
         display: flex;
         justify-content: space-between;
         text-decoration: none;
-        color: black;
+        color: #606060;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         background-color: white;
         height: 100%;
+        margin-left: 5px;
     }
 
     /* Register display */
