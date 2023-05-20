@@ -523,4 +523,246 @@ nav {
 
 .header__nav-low-options-container > li > a:hover{
     color: #000000;
-} 
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    font-family: "Montserrat", sans-serif;
+    background-color: white;
+    margin: 90px auto;
+    padding: 20px;
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.main__category-name-container > h3{
+    font-size: 1.4rem;
+    color: #3a3a3a;
+    font-weight: 300;
+}
+
+.main__product-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border: 1px solid #d4d4d4;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.product__img-total-container {
+    width: 800px;
+}
+
+.product__img-container {
+    width: 400px;
+    margin: auto;
+}
+
+.product__img-container > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.main__info-product {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    border: 1px solid #d4d4d4;
+    border-radius: 15px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.info-top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50%;
+    margin-bottom: 80px;
+}
+
+.info-top-container > h2 {
+    color: #1e1e1e;
+    font-size: 1.5rem;
+}
+
+.info-rating-container > i {
+    font-size: 22px;
+    color: #48c8e2;
+}
+
+.info-top-container > h3 {
+    font-size: 1.8rem;
+    color: #3a3a3a;
+    font-weight: 300;
+}
+
+.info-btns-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50%;
+    align-items: center;
+}
+
+.info-btns-container > button {
+    border: none;
+    height: 50px;
+    width: 60%;
+    font-size: 1.4rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #39b3d5;
+}
+
+.info-btns-container > button:hover {
+    background-color: #1dabd2;
+}
+
+.main__description-product {
+    width: 65%;
+    padding: 10px;
+    margin: 30px 0;
+}
+
+.main__description-product > h2 {
+    font-size: 1.5rem;
+    color: #1e1e1e;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.main__description-product > p {
+    font-size: 1.1rem;
+    color: #1e1e1e;
+    font-weight: 300;
+}
+
+/* Inicio sección comentarios */
+
+.main__coments-section-container {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.main__coments-section-container > h3{
+    font-size: 1.3rem;
+    color: #1e1e1e;
+    margin-bottom: 10px;
+}
+/* Inicio contenedor de comentarios  */
+
+.comments-total-container {
+    min-height: 200px;
+    width: 40%;
+    margin-bottom: 30px;
+    padding: 10px;
+    color: #454545;
+}
+
+.comments__no-comments.invisible {
+    display: none;
+}
+
+.comment {
+    background-color:  #f3f2f2;
+    margin: 10px 0;
+    min-height: 70px;
+    padding: 5px;
+}
+
+.comment__date-container {
+    margin-bottom: 5px;
+}
+
+.comment__date-container > span {
+    font-size: 0.9rem;
+}
+
+.comment__text-container {
+    padding: 5px;
+}
+
+.comment__text-container > p {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Fin contenedor de comentarios  */
+
+
+.comments-write-comment {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+#write-comment {
+    resize: none;
+    height: 80px;
+    font-size: 1.2rem;
+    font-family: "Abel", sans-serif;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+#write-comment:focus {
+    outline: 1px solid #bfbfbf;
+}
+
+#send-comment {
+    width: 50%;
+    border: none;
+    height: 40px;
+    font-size: 1.4rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #39b3d5;
+}
+
+#send-comment:hover {
+    background-color: #1dabd2;
+}
+
+/* Fin sección comentarios */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: #2f2f2f;
+}
+
+.footer__text {
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    margin-left: 15px;
+    font-weight: bold;
+    color: #eaeaea;
+}
+
+.footer__icons {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 15px;
+}
+
+.footer__icons > i {
+    font-size: 32px;
+    color: #eaeaea;
+    cursor: pointer;
+}
+
+.footer__icons > i:hover {
+    color: #fafafa;
+}

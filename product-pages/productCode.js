@@ -50,3 +50,62 @@ closeRegister.addEventListener("click", () => {
   document.getElementById("form__mensaje").classList.remove("form__mensaje-incorrecto", "form__mensaje-exito");
   formRegister.reset();
 });
+
+// Sección comentarios
+
+const writeField = document.querySelector("#write-comment");
+const sendCommentBtn = document.querySelector("#send-comment");
+const commentsContainer = document.querySelector("#comments-container");
+const commentForm = document.querySelector("#publish-comment");
+const noCommentsText = document.querySelector("#comments-container .comments__no-comments");
+
+const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+commentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+  const hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+  const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+
+  let dateValue = `Publicado el ${day} de ${monthNames[month]} de ${year} a las ${hours}:${minutes} hs.`;
+
+  const newComment = writeField.value.trim();
+  if (newComment !== "") {
+    noCommentsText.classList.add("invisible");
+    createComment(newComment, dateValue);
+    writeField.value = ""; 
+  }
+});
+
+const createComment = (comment, dateValue) => {
+  
+  // Creando componentes
+
+  const commentContainer = document.createElement("div");
+  const dateContainer = document.createElement("div");
+  const dateText = document.createElement("span");
+  const textContainer = document.createElement("div");
+  const text = document.createElement("p");
+  dateText.textContent = dateValue;
+  text.textContent = comment;
+
+  // Dando clases
+  commentContainer.classList.add("comment");
+  dateContainer.classList.add("comment__date-container");
+  dateText.classList.add("comment");
+  textContainer.classList.add("comment__text-container");
+  text.classList.add("comment__text");
+
+  // Asignando hijos
+
+  dateContainer.appendChild(dateText);
+  textContainer.appendChild(text);
+  commentContainer.appendChild(dateContainer);
+  commentContainer.appendChild(textContainer);
+
+  commentsContainer.appendChild(commentContainer);
+};

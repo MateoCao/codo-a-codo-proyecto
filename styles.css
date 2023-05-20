@@ -914,7 +914,11 @@ footer {
 
     .menu__mobile-total-container.visible {
         display: flex;
-        animation:  slideInRight 1s;
+        animation:  slideInRight 0.5s;
+    }
+
+    .menu__mobile-total-container.invisible {
+        animation:  slideOutLeft 0.5s;
     }
 
     @keyframes slideInRight {
@@ -924,6 +928,16 @@ footer {
     
         to {
             transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOutLeft {
+        from {
+            transform: translateX(0);
+        }
+    
+        to {
+            transform: translateX(100vw);
         }
     }
 

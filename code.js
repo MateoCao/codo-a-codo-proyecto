@@ -169,9 +169,17 @@ registerTrigger.addEventListener("click", () => {
 
 closeRegister.addEventListener("click", () => {
   registerDisplay.classList.add("invisible");
-  setTimeout(() => {
+
+  if(document.documentElement.clientWidth <= 767) {
+    setTimeout(() => {
+      registerDisplay.classList.remove("visible");
+      body.classList.remove("hidden");
+    }, 480)
+  } else {
     registerDisplay.classList.remove("visible");
-  }, 480)
+    body.classList.remove("hidden");
+  }
+  
   document.querySelectorAll(".formulario__grupo-input i").forEach((icon) => {
     icon.classList.remove("fa-circle-check", "fa-circle-xmark");
   });
@@ -182,7 +190,6 @@ closeRegister.addEventListener("click", () => {
     div.classList.remove("form__input-error-visible");
   });
   document.getElementById("form__mensaje").classList.remove("form__mensaje-incorrecto", "form__mensaje-exito");
-  body.classList.remove("hidden");
   formRegister.reset();
 });
 
