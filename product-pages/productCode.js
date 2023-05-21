@@ -61,7 +61,7 @@ const noCommentsText = document.querySelector("#comments-container .comments__no
 
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-const commentExpression = /^[a-zA-ZÀ-ÿ0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{20,150}$/ // Letras y espacios, pueden llevar acentos.
+const commentExpression = /^[a-zA-ZÀ-ÿ0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{30,150}$/ // Letras y espacios, pueden llevar acentos.
 
 let commentValidated = false
 
