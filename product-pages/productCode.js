@@ -61,6 +61,38 @@ const noCommentsText = document.querySelector("#comments-container .comments__no
 
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
+const commentExpression = /^[a-zA-ZÀ-ÿ0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{20,150}$/ // Letras y espacios, pueden llevar acentos.
+
+let commentValidated = false
+
+const commentValidation = (e) => {
+  if(commentExpression.test(e.target.value)) {
+    document.getElementById("textarea-error").classList.remove("visible");
+    commentValidated = true;
+  } else {
+    document.getElementById("textarea-error").classList.add("visible");
+    commentValidated = false;
+  }
+}
+
+
+writeField.addEventListener("keydown", commentValidation)
+writeField.addEventListener("blur", commentValidation)
+
+
+
+// Simulando almacenamiento de comentarios.
+
+if(typeof(Storage) !== 'undefined') {
+  window.addEventListener("load", () => {
+    loadComments();
+  });
+};
+
+
+
+// Publicación comentario.
+
 commentForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -70,13 +102,15 @@ commentForm.addEventListener("submit", (e) => {
   const day = date.getDate();
   const hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
   const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
-
-  let dateValue = `Publicado el ${day} de ${monthNames[month]} de ${year} a las ${hours}:${minutes} hs.`;
+  const dateValue = `Publicado el ${day} de ${monthNames[month]} de ${year} a las ${hours}:${minutes} hs.`;
 
   const newComment = writeField.value.trim();
-  if (newComment !== "") {
+  if (commentValidated) {
     noCommentsText.classList.add("invisible");
     createComment(newComment, dateValue);
+    if(typeof(Storage) !== 'undefined') {
+      saveComment(newComment, dateValue);
+    }
     writeField.value = ""; 
   }
 });
@@ -94,6 +128,7 @@ const createComment = (comment, dateValue) => {
   text.textContent = comment;
 
   // Dando clases
+
   commentContainer.classList.add("comment");
   dateContainer.classList.add("comment__date-container");
   dateText.classList.add("comment");
@@ -108,4 +143,22 @@ const createComment = (comment, dateValue) => {
   commentContainer.appendChild(textContainer);
 
   commentsContainer.appendChild(commentContainer);
+};
+
+// Utilizo localStorage para almacenar y cargar comentarios al volver a la página.
+
+const saveComment = (info, dateValue) => {
+  let comments = JSON.parse(localStorage.getItem("comments")) || [];
+  comments.push({ info, dateValue });
+  localStorage.setItem("comments", JSON.stringify(comments));
+};
+
+const loadComments = () => {
+  let comments = JSON.parse(localStorage.getItem("comments")) || [];
+  if (comments.length > 0) {
+    noCommentsText.classList.add("invisible");
+    comments.forEach((comment) => {
+      createComment(comment.info, comment.dateValue);
+    });
+  }
 };
