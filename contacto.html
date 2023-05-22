@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=DynaPuff&family=Montserrat:ital,wght@1,300&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b99a20d6cb.js" crossorigin="anonymous"></script>
 
-    <title>Sobre nosotros</title>
+    <title>Contacto</title>
 </head>
 <body>
 
@@ -70,7 +70,7 @@
                             <a href="./sucursales.html">Sucursales</a>
                         </li>
                         <li>
-                            <a href="./sobreNosotros.html">Sobre nosotros</a>
+                            <a href="./contacto.html">Contacto</a>
                         </li>
                     </ul>
                 </div>
@@ -188,12 +188,139 @@
 
     <main>
 
+        <section class="main__contact-form-total-container">
+            <div class="contact-form__left-card">
+                <div class="contact-form__left-card-text-container">
+                    <h2 class="contact-form-title">¿Tienes alguna duda? <br> ¡Contáctanos!</h2>
+                    <p>mateocaoprueba@gmail.com</p>
+                    <p>+541234567891</p>
+                </div>
+            </div>
+            
+            <!-- Inicio formulario contacto -->
+
+            <div class="contact-form-container">
+                <form id="contact-form">
+
+                    <!--Nombre-->
+
+                    <div class="form-contact__group" id="contact-group__name">
+                        <label for="contact-name">Nombre</label>
+                        <div class="form-contact__group-input">
+                            <input autocomplete="name" name="contact-name" id="contact-name" type="text" required>
+                            <i class="fa-sharp fa-solid"></i>
+                        </div>
+                        
+                        <div class="form-contact__input-error">
+                            <p>Debe contener al menos 3 carácteres, sin números o símbolos.</p>
+                        </div>
+                    </div>
+
+                    <!--Apellido-->
+
+                    <div class="form-contact__group" id="contact-group__surname">
+                        <label for="contact-surname">Apellido</label>
+                        <div class="form-contact__group-input">
+                            <input autocomplete="family-name" name="contact-surname" id="contact-surname" type="text" required>
+                            <i class="fa-sharp fa-solid"></i>
+                        </div>
+                        
+                        <div class="form-contact__input-error">
+                            <p>Debe contener al menos 3 carácteres, sin números o símbolos.</p>
+                        </div>
+
+                        
+                    </div>
+                    
+                    <!--Email-->
+
+                    <div class="form-contact__group" id="contact-group__email">
+                        <label for="contact-email">Correo electrónico</label>
+                        <div class="form-contact__group-input">
+                            <input autocomplete="email" name="contact-email" id="contact-email" type="email" required>
+                            <i class="fa-sharp fa-solid"></i>
+                        </div>
+                        
+                        <div class="form-contact__input-error">
+                            <p>Ingresa correctamente tu correo electrónico.</p>
+                        </div>
+                    </div>
+
+                    <!--Teléfono-->
+
+                    <div class="form-contact__group" id="contact-group__phone">
+                        <label for="contact-phone">Número de teléfono</label>
+                        <div class="form-contact__group-input">
+                            <input autocomplete="tel" name="contact-phone" id="contact-phone" type="tel" required>
+                            <i class="fa-sharp fa-solid"></i>
+                        </div>
+                        
+                        <div class="form-contact__input-error">
+                            <p>Debe contener al menos 8 números, sin guiones o símbolos.</p>
+                        </div>
+                    </div>
+
+                    <!--Asunto-->
+
+                    <div class="form-contact__group" id="contact-group__subject">
+                        <label for="contact-subject">Asunto</label>
+                        <div class="form-contact__group-input">
+                            <input name="contact-subject" id="contact-subject" type="text" required>
+                            <i class="fa-sharp fa-solid"></i>
+                        </div>
+                        
+                        <div class="form-contact__input-error">
+                            <p>Debe contener al menos 5 carácteres, sin números o símbolos.</p>
+                        </div>
+                    </div>
+
+                    <!--Mensaje-->
+
+                    <div class="form-contact__group" id="contact-group__message">
+                        <label for="contact-message">Mensaje</label>
+                        <div class="form-contact__textarea">
+                            <textarea placeholder="Mensaje" name="contact-message" id="contact-message" required></textarea>
+                        </div>
+                        
+                        <div class="form-contact__textarea-error">
+                            <p>Ingresa entre 30 a 300 carácteres.</p>
+                        </div>
+                    </div>
+
+                    <!--Submit-->
+                    <div id="contact-grupo__submit">
+                        <input type="submit" value="Enviar">
+                        <div class="form-contact__message" id="form-contact__message">
+                            <p class="form-contact__message-text"></p>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- Fin formulario contacto -->
+
     </main>
 
+    <!--Footer-->
+    <footer>
+        <p class="footer__text">
+           Proyecto codo a codo
+        </p>
+        <div class="footer__icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+    </footer>
+    <!--Fin de Footer-->
+
     <!--Css y JS-->
-    <link rel="stylesheet" href="sobreNosotros.css">
-    <script src="sobreNosotros.js"></script>
+    <link rel="stylesheet" href="contacto.css">
+    <script src="contacto.js"></script>
     <script src="formulario/validacionFormularioRegistro.js"></script>
+    <script src="formulario/validacionFormularioContacto.js"></script>
 
     <!-- Enviar email -->
     <script 

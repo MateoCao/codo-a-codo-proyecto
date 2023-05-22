@@ -162,3 +162,18 @@ const loadComments = () => {
     });
   }
 };
+
+// POSITION FIXED
+
+const navLowBarContainer = document.querySelector('.header__nav-low-bar-container');
+const navLowBarContainerPosition = navLowBarContainer.offsetTop;
+
+const handleScroll = () => {
+  if (window.pageYOffset > navLowBarContainerPosition) {
+    navLowBarContainer.classList.add("fixed");
+  } else {
+    navLowBarContainer.classList.remove("fixed");
+  };
+};
+
+window.addEventListener('scroll', handleScroll);

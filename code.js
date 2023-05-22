@@ -128,6 +128,8 @@ const navTopBarContainer = document.querySelector('.header__nav-top-bar-containe
 const navTopBarContainerPosition = navTopBarContainer.offsetTop;
 const navLowBarContainer = document.querySelector('.header__nav-low-bar-container');
 
+
+
 const handleScroll = () => {
   if (window.pageYOffset > navTopBarContainerPosition) {
     navLowBarContainer.classList.add("fixed");
