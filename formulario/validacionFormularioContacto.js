@@ -13,7 +13,7 @@ const expresionesContactForm = {
 	surname: /^[a-zA-ZÀ-ÿ\s]{3,30}$/, // Letras y espacios, pueden llevar acentos.
     phone: /^\d{8,14}$/, // 7 a 14 números. 
 	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // Formato email.
-    subject: /^[a-zA-ZÀ-ÿ\s]{5,20}$/,
+    subject: /^[a-zA-ZÀ-ÿ\s]{5,40}$/,
     message: /^[a-zA-ZÀ-ÿ0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{30,300}$/ // Letras y espacios, pueden llevar acentos.
 };
 
@@ -104,7 +104,7 @@ messageContactForm.addEventListener("blur", validarTextArea);
 
 //SUBMIT
 
-contactForm.addEventListener("submit", (e) => {
+async function handleSubmit(e) {
 	e.preventDefault();
 
 	const formMensajeContact = document.getElementById("form-contact__message");
@@ -124,23 +124,46 @@ contactForm.addEventListener("submit", (e) => {
 	//Si todas las propiedades del objeto "campos" son verdaderas se "enviará" el formulario y el correo de confirmación. Además se modifican clases. 
 
 	if(camposContactForm.name && camposContactForm.surname && camposContactForm.email && camposContactForm.phone && camposContactForm.subject && camposContactForm.message) {
-		contactForm.reset();
-		formMensajeContact.classList.remove("error");
-		formMensajeContact.classList.add("success");
-		formMensajeContact.querySelector(".form-contact__message-text").textContent = "Tu consulta fue enviada. Recibirás un mail con más información y con un tiempo aproximado en cuanto a la respuesta."
-		setTimeout(() => {
-            formMensajeContact.querySelector(".form-contact__message-text").textContent = "";
+		const $contactForm = new FormData(this);
+		const res = await fetch(this.action, {
+			method: this.method,
+			body: $contactForm,
+			headers: {
+				"Accept" : "application/json"
+			}
+		});
+		if(res.ok) {
+			contactForm.reset();
+			formMensajeContact.classList.remove("error");
+			formMensajeContact.classList.add("success");
+			formMensajeContact.querySelector(".form-contact__message-text").textContent = "Tu consulta fue enviada. Recibirás un mail con más información y con un tiempo aproximado en cuanto a la respuesta."
+			setTimeout(() => {
+           		formMensajeContact.querySelector(".form-contact__message-text").textContent = "";
+				formMensajeContact.classList.remove("success");
+				document.querySelectorAll(".form-contact__group-input i").forEach((icon) => {
+				icon.classList.remove("fa-circle-check");
+				});
+           		 contactForm.querySelectorAll(".form-contact__group").forEach((group) => {
+                group.classList.remove("form__success");
+            	}); 
+			}, 5000);
+			emailjs.send("service_r0586et", "template_tboiwbe", paramsContact).then();
+		} else {
+			contactForm.reset();
 			formMensajeContact.classList.remove("success");
 			document.querySelectorAll(".form-contact__group-input i").forEach((icon) => {
-				icon.classList.remove("fa-circle-check");
+			icon.classList.remove("fa-circle-check");
 			});
-            contactForm.querySelectorAll(".form-contact__group").forEach((group) => {
-                group.classList.remove("form__success");
-            }); 
-		}, 5000);
-		emailjs.send("service_r0586et", "template_tboiwbe", paramsContact).then()
+				contactForm.querySelectorAll(".form-contact__group").forEach((group) => {
+			group.classList.remove("form__success");
+			});
+			formMensajeContact.classList.add("error");
+			formMensajeContact.querySelector(".form-contact__message-text").textContent = "Hubo un problema con el envío de tu consulta, por favor, intentalo más tarde."
+		};		
 	} else {
 		formMensajeContact.classList.add("error");
 		formMensajeContact.querySelector(".form-contact__message-text").textContent = "Por favor, completa todos los campos correctamente."
-	}
-});
+	};
+};
+
+contactForm.addEventListener("submit", handleSubmit);

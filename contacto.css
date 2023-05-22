@@ -803,15 +803,16 @@ footer {
     margin-right: 15px;
 }
 
-.footer__icons > i {
-    font-size: 32px;
+.footer__icons > a {
+    text-decoration: none;
     color: #eaeaea;
+    font-size: 32px;
     cursor: pointer;
 }
 
-.footer__icons > i:hover {
-    color: #fafafa;
-}
+.footer__icons > a:hover {
+    color: #ffffff;
+} 
 
 /* FIN FOOTER */
 

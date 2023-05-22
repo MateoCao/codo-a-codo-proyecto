@@ -740,17 +740,18 @@ footer {
     display: flex;
     justify-content: space-around;
     margin-right: 15px;
-}
+} 
 
-.footer__icons > i {
-    font-size: 32px;
+.footer__icons > a {
+    text-decoration: none;
     color: #eaeaea;
+    font-size: 32px;
     cursor: pointer;
 }
 
-.footer__icons > i:hover {
-    color: #fafafa;
-}
+.footer__icons > a:hover {
+    color: #ffffff;
+}   
 
 /* FIN FOOTER */
 
@@ -775,6 +776,9 @@ footer {
 
 /* FIN SCROLL BAR */
 
+/* INICIO RESPONSIVE */
+
+/* 1024px a 1279px */
 
 @media (max-width: 1279px) and (min-width: 1024px) {
     .header__nav-top-bar-container {
@@ -794,11 +798,15 @@ footer {
     }
 }
 
+/* 768px a 1023px */
+
 @media (max-width: 1023px) and (min-width: 768px) {
     body.hidden {
         overflow: hidden;
         height: 100vh;
     }
+
+    /* Header */
 
     header {
         height: 80px;
@@ -1021,6 +1029,10 @@ footer {
         height: 100%;
         margin-left: 5px;
     }
+
+    /* FIN MENU Y HEADER */
+
+    /* INICIO MAIN */
 
     main {
         width: 95%;
@@ -1044,11 +1056,15 @@ footer {
     }
 }
 
+/* 767px */
+
 @media (max-width: 767px) {
     body.hidden {
         overflow: hidden;
         height: 100vh;
     }
+
+    /* INICIO HEADER */
 
     header {
         height: 80px;
@@ -1271,6 +1287,8 @@ footer {
         height: 100%;
         margin-left: 5px;
     }
+
+    /* Fin menu display */
 
     /* Register display */
 
@@ -1363,8 +1381,10 @@ footer {
         font-size: 1.1rem;
     }
 
-    /* FIN DE MENU DISPLAY */
+    /* FIN DE HEADER Y REGISTER DISPLAY */
 
+    /* INICIO MAIN */
+    
     main {
         width: 100%;
     }
@@ -1452,6 +1472,10 @@ footer {
         margin-left: 2px;
     }
 
+    /* FIN MAIN */
+
+    /* FOOTER */
+
     footer {
         height: 100px;
         background-color: #2f2f2f;
@@ -1469,6 +1493,4 @@ footer {
     .footer__icons > i {
         font-size: 24px;
     }
-
-
 }

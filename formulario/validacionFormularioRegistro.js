@@ -100,7 +100,7 @@ inputs.forEach((input) => {
 
 //SUBMIT
 
-formulario.addEventListener("submit", (e) => {
+async function handleFormSubmit(e) {
 	e.preventDefault();
 
 	const formMensaje = document.getElementById("form__mensaje");
@@ -122,19 +122,41 @@ formulario.addEventListener("submit", (e) => {
 	//Si todas las propiedades del objeto "campos" son verdaderas se "enviará" el formulario y el correo de confirmación. Además se modifican clases. 
 
 	if(campos.usuario && campos.nombre && campos.email && campos.password && campos.password2) {
-		formulario.reset();
-		formMensaje.classList.remove("form__mensaje-incorrecto");
-		formMensaje.classList.add("form__mensaje-exito");
-		formMensaje.querySelector(".registro-mensaje").textContent = "Te has registrado exitosamente. En breve te llegará un correo electrónico confirmando tu registro."
-		setTimeout(() => {
-			formMensaje.classList.remove("form__mensaje-exito");
+		const $formulario = new FormData(this);
+
+		const response = await fetch(this.action, {
+			method: this.method,
+			body: $formulario,
+			headers: {
+				"Accept" : "application/json"
+			}
+		});
+
+		if(response.ok) {
+			formulario.reset();
+			formMensaje.classList.remove("form__mensaje-incorrecto");
+			formMensaje.classList.add("form__mensaje-exito");
+			formMensaje.querySelector(".registro-mensaje").textContent = "Te has registrado exitosamente. En breve te llegará un correo electrónico confirmando tu registro."
+			setTimeout(() => {
+				formMensaje.classList.remove("form__mensaje-exito");
+				document.querySelectorAll(".formulario__grupo-input i").forEach((icon) => {
+					icon.classList.remove("fa-circle-check");
+				}); 
+			}, 5000);
+			emailjs.send("service_r0586et", "template_iqsldso", params).then();
+		} else {
+			formulario.reset();
 			document.querySelectorAll(".formulario__grupo-input i").forEach((icon) => {
 				icon.classList.remove("fa-circle-check");
 			}); 
-		}, 5000);
-		emailjs.send("service_r0586et", "template_iqsldso", params).then()
+			alert("Hubo un problema al enviar tu formulario de registro, por favor intentalo nuevamente.")
+		};
+
 	} else {
 		formMensaje.classList.add("form__mensaje-incorrecto");
 		formMensaje.querySelector(".registro-mensaje").textContent = "Por favor, ingresa los datos correctamente."
-	}
-});
+	};
+};
+
+formulario.addEventListener("submit", handleFormSubmit);
+
