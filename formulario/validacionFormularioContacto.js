@@ -11,10 +11,10 @@ const messageContactForm = document.getElementById("contact-message");
 const expresionesContactForm = {
 	name: /^[a-zA-ZÀ-ÿ\s]{3,30}$/, // Letras, numeros, guion y guion_bajo.
 	surname: /^[a-zA-ZÀ-ÿ\s]{3,30}$/, // Letras y espacios, pueden llevar acentos.
-    phone: /^\d{8,14}$/, // 7 a 14 números. 
-	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // Formato email.
+    phone: /^\d{8,14}$/, // 8 a 14 números. 
+	email: /^[a-zA-Z0-9_.+-]{1,50}@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // Formato email.
     subject: /^[a-zA-ZÀ-ÿ\s]{5,40}$/,
-    message: /^[a-zA-ZÀ-ÿ0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{30,300}$/ // Letras y espacios, pueden llevar acentos.
+    message: /^[a-zA-ZÀ-ÿ0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{30,600}$/ // Letras y espacios, pueden llevar acentos y símbolos.
 };
 
 //Indico valores en false para que no se envíe el formulario si el usuario llena mal algun campo.
@@ -124,6 +124,8 @@ async function handleSubmit(e) {
 	//Si todas las propiedades del objeto "campos" son verdaderas se "enviará" el formulario y el correo de confirmación. Además se modifican clases. 
 
 	if(camposContactForm.name && camposContactForm.surname && camposContactForm.email && camposContactForm.phone && camposContactForm.subject && camposContactForm.message) {
+		
+		//AJAX
 		const $contactForm = new FormData(this);
 		const res = await fetch(this.action, {
 			method: this.method,

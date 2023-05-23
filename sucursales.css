@@ -157,7 +157,7 @@ nav {
     height: 25px;
     width: 25%;
     margin-top: 10px;
-    border: 1.5px solid #3a3a3a;
+    border: none;
     border-radius: 5px;
     background-color: #5590fc;
     cursor: pointer;

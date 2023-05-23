@@ -157,7 +157,7 @@ nav {
     height: 25px;
     width: 25%;
     margin-top: 10px;
-    border: 1.5px solid #3a3a3a;
+    border: none;
     border-radius: 5px;
     background-color: #5590fc;
     cursor: pointer;
@@ -619,6 +619,7 @@ main {
     cursor: pointer;
     border-radius: 5px;
     background-color: #5590fc;
+    transition: 0.2s;
 }
 
 .info-btns-container > button:hover {
@@ -744,6 +745,7 @@ main {
     border-radius: 5px;
     background-color: #5590fc;
     margin-top: 5px;
+    transition: 0.2s;
 }
 
 #send-comment:hover {
