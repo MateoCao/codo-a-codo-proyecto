@@ -13,8 +13,8 @@ const expresionesContactForm = {
 	surname: /^[a-zA-ZÀ-ÿ\s]{3,30}$/, // Letras y espacios, pueden llevar acentos.
     phone: /^\d{8,14}$/, // 8 a 14 números. 
 	email: /^[a-zA-Z0-9_.+-]{1,50}@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // Formato email.
-    subject: /^[a-zA-ZÀ-ÿ\s]{5,40}$/,
-    message: /^[a-zA-ZÀ-ÿ0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{30,600}$/ // Letras y espacios, pueden llevar acentos y símbolos.
+    subject: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    message: /^[a-zA-ZÀ-ÿ0-9\s¡!"#$%&'()*+,-¨°./:;<=>¿?@[\]^_`{|}~]{30,600}$/ // Letras y espacios, pueden llevar acentos y símbolos.
 };
 
 //Indico valores en false para que no se envíe el formulario si el usuario llena mal algun campo.

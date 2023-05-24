@@ -562,9 +562,13 @@ main {
     font-size: 2.2rem;
 }
 
-.contact-form__left-card-text-container > p {
+.contact-form__left-card-text-container > div {
+    height: 60px;
+}
+
+.contact-form__left-card-text-container > div > p {
     color: #e8e8e8;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
 }
 

@@ -10,7 +10,7 @@ const inputs = document.querySelectorAll('#form-register input');
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{6,16}$/, // Letras, numeros, guion y guion_bajo.
 	nombre: /^[a-zA-ZÀ-ÿ\s]{8,30}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/, // Una mayúscula, una minúscula, un número y un símbolo. Mínimo 8 carácteres.
+	password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/, // Una mayúscula, una minúscula, un número y un símbolo. Mínimo 8 caracteres.
 	email: /^[a-zA-Z0-9_.+-]{1,50}@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/ // Formato email.
 };
 
