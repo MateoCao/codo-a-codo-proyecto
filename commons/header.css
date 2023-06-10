@@ -1,0 +1,514 @@
+header {
+    background-color: white;
+    height: 170px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* INICIO TOP HEADER */
+
+.header__logo {
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(#6398fa, #5590fc);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header__logo-text {
+    font-size: 1.1rem;
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+}
+
+/* FIN TOP HEADER */
+
+/* INICIO BOTTOM (NAV) HEADER */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    height: 140px;
+}
+
+/* INICIO NAV TOP */
+
+.header__nav-top-bar-container {
+    display: flex; 
+    justify-content: space-between;
+    height: 70px;
+    width: 68%;
+    align-self: center;
+    padding: 10px 10px 0 10px;
+    margin-top: 5px;
+    border-bottom: 0.5px solid rgb(204, 204, 204);
+}
+
+.header__nav-left-container-mobile {
+    display: none;
+}
+
+.header__nav-name-container {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    position: relative;
+    left: 30px;
+}
+
+.header__nav-top-options-container {
+    position: relative;
+    right: 80px;
+    list-style-type: none;
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    color: #3a3a3a;
+}
+
+.menu__mobile-total-container {
+    display: none;
+}
+
+/* INICIO LOGIN */
+
+.login-container {
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: "Abel", sans-serif;
+}
+
+.login-container.visible {
+    display: flex;
+    z-index: 30;
+}
+
+#my-account-login {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 30px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#my-account-login > form {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+#my-account-login > form > label {
+    margin-top: 10px;
+}
+
+#my-account-login > form > input {
+    height: 30px;
+    width: 90%;
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+}
+
+.correo-no-registrado__contenedor {
+    height: 30px;
+}
+
+.correo-no-registrado__contenedor > p {
+    display: none;
+}
+
+.correo-no-registrado__contenedor-visible > p {
+    display: block;
+    color: #f52a2a;
+}
+
+#my-account-login > form > :last-child {
+    height: 25px;
+    width: 25%;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5590fc;
+    cursor: pointer;
+    color: white;
+}
+
+#my-account-login > form > :last-child:focus {
+    background-color: #397cf7;
+}
+
+.login__register {
+    align-self: flex-start;
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+#register-trigger {
+    background-color: white;
+    font-size: 20px;
+    color: #245def;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#register-trigger:focus {
+    color: #143382;
+}
+
+.close-container {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+/* FIN LOGIN */
+
+/* INICIO REGISTER */
+
+.register-total-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 30;
+    font-family: "Abel", sans-serif;
+    
+}
+
+.register-total-container.visible {
+    display: flex;
+    z-index: 30;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 490px;
+    padding: 30px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.register-form__close-container {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.register-form__close-container > i {
+    font-size: 25px;
+    color: #484848;
+}
+
+.register-form__close-container > i:hover {
+    color: black;
+}
+
+#form-register {
+    display: flex;
+    height: 100%;
+    flex-flow: column wrap;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.formulario__grupo {
+    margin: 5px 0;
+    width: 50%;
+}
+
+.formulario__grupo > label {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.formulario__grupo-input > input {
+    width: 90%;
+    height: 35px;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: 2px solid black;
+    font-size: 16px;
+}
+
+.formulario__grupo-input > input:focus {
+    border: 3px solid #5590fc;
+    outline: none;
+}
+
+#grupo__submit {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    margin-top: 35px;
+}
+
+#grupo__submit > input {
+    width: 45%;
+    height: 50px;
+    font-size: 22px;
+    align-self: center;
+    background-color: #5590fc;
+    border: none;
+    border-radius: 3px;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+#grupo__submit > input:hover {
+    background-color: #2160d5;
+    color: white;
+}
+
+#grupo__submit > div {
+    width: 100%;
+}
+
+.form__input-error {
+    margin-bottom: 24px;
+    color: #f52a2a;
+    height: 30px;
+}
+
+.form__input-error > p {
+    display: none;
+}
+
+.form__mensaje {
+   display: none; 
+}
+
+.form__mensaje-exito {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* CORRECTOS VISIBLES */
+
+.form__mensaje-exito > p {
+    color: #2bb31c;
+    font-size: 20px;
+}
+
+.fa-circle-check {
+    position: relative;
+    right: 30px;
+    top: 1px;
+    color: #2bb31c;
+    font-size: 20px;
+}
+
+
+/* INCORRECTO VISIBLES */
+
+.form__input-error-visible > p {
+    font-size: 16px;
+    display: block;
+}
+
+.formulario__incorrecto > label {
+    color: #f52a2a;
+}
+
+.formulario__incorrecto > div > input {
+    border: 2px solid #f52a2a;
+}
+
+.formulario__incorrecto > div > input:focus {
+    border: 2px solid #f52a2a;
+}
+
+.fa-circle-xmark {
+    position: relative;
+    right: 30px;
+    top: 1px;
+    color: #f52a2a;
+    font-size: 20px;
+}
+
+.form__mensaje-incorrecto {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    background-color: #f52a2a;
+    height: 35px;
+}
+
+.form__mensaje-incorrecto > p {
+    color: #fffefe;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+/* FIN REGISTER */
+
+.header__nav-top-options-container > li:hover{
+    color: black;
+}
+
+.header__nav-my-account-container {
+    margin-top: 6px;
+    text-align: center;
+    cursor: pointer;
+    min-width: 86px;
+}
+
+.header__nav-my-account-container > p {
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
+.header__nav-cart-container {
+    margin-top: 6px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header__nav-cart-container > p {
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
+.header__nav-logo-container > i {
+    font-size: 1.5rem;
+}
+
+.header__nav-logo-container {
+    justify-self: flex-end;
+    padding: 10px;
+    margin-right: 60px;
+    font-size: 20px;
+}
+
+
+/* FIN NAV TOP */
+
+/* INICIO NAV BOTTOM */
+
+.header__nav-low-bar-container {
+    display: flex;
+    align-self: center;
+    position: static;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    border: none;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 70%;
+    height: 60px;
+    background-color: white;
+    z-index: 20;
+}
+
+.header__nav-low-bar-container.fixed {
+    position: fixed;
+    top: 0;
+    border: 1px solid #a9a9a9;
+    border-top: none;
+}
+
+.header__nav-options-container-products {
+    margin-left: 15px;
+}
+
+.header__nav-options-container-products-display {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    font-size: 20px;
+    font-family: "Abel", sans-serif;
+    font-weight: bold;
+    border: 0.5px solid black;
+    border-top: none ;
+    color: black;
+}
+
+.header__nav-options-container-products-display.visible{
+    display: block;
+}
+
+.header__nav-options-container-products-display > li {
+    border-top: 0.5px solid black;
+    padding: 5px 15px;
+    background-color: white;
+}
+
+.header__nav-options-container-products-display:first-child {
+    border: none;
+}
+
+.header__nav-options-container-products-display > li:hover {
+    background-color: #cdeff8;
+}
+
+.header__nav-options-container-products-display > li > a {
+    color: black;
+    text-decoration: none;
+}
+
+.header__nav-low-bar-container > div {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.header__nav-low-options-container {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    list-style-type: none;
+    width: 450px;
+}
+
+.header__nav-low-options-container > li{
+    font-size: 20px;
+    font-family: "Abel", sans-serif;
+    font-weight: 600;
+    margin: 0.5% 5% 0 5%;
+}
+
+.header__nav-low-options-container > li > a {
+    color: #3a3a3a;
+    text-decoration: none;
+}
+
+.header__nav-low-options-container > li > a:hover{
+    color: #000000;
+} 
